@@ -12,8 +12,8 @@ export default function App() {
     "Hello C.P. Interiors, I would like a consultation."
   )}`;
 
-  const instagram =
-    "https://www.instagram.com/_cpinterior_?igsh=MWNramNsc2J0Nm1tNQ==";
+  const instagram = "https://www.instagram.com/_cpinterior_/";
+
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const serviceRefs = useRef([]);
