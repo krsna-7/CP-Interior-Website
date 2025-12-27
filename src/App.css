@@ -1,0 +1,426 @@
+:root {
+  --primary: #1d1d1f;
+  --accent: #c5a059;
+  --bg-light: #f5f5f7;
+  --white: #ffffff;
+  --text-muted: #6e6e73;
+  --transition: all 0.4s ease;
+}
+
+/* ============================= */
+/* RESET */
+/* ============================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================= */
+/* BASE */
+/* ============================= */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  color: var(--primary);
+  background: var(--white);
+  line-height: 1.7;
+  padding-top: 92px; /* space for fixed header */
+}
+
+.site-wrapper {
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ============================= */
+/* NAVBAR (FIXED & SAFE) */
+/* ============================= */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9999;
+  padding: 1.2rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.brand {
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 1.6rem;
+  align-items: center;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.nav-btn {
+  background: var(--primary);
+  color: white;
+  padding: 0.75rem 1.6rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Instagram Icon */
+.icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.icon-link:hover {
+  color: #e1306c;
+  transform: translateY(-2px) scale(1.1);
+}
+
+/* ============================= */
+/* HERO */
+/* ============================= */
+.hero {
+  padding: 140px 6% 100px;
+  background: #fafafa;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+  font-weight: 800;
+  letter-spacing: -2px;
+  margin-bottom: 1.8rem;
+}
+
+.hero p {
+  max-width: 720px;
+  margin: 0 auto 3rem;
+  font-size: 1.25rem;
+  color: var(--text-muted);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+/* ============================= */
+/* BUTTONS */
+/* ============================= */
+.btn {
+  padding: 1.05rem 2.8rem;
+  border-radius: 40px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.btn.secondary {
+  border: 1.6px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+}
+
+.light-btn {
+  background: white !important;
+  color: #111 !important;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+}
+
+/* ============================= */
+/* SECTIONS */
+/* ============================= */
+.section {
+  padding: 110px 6%;
+}
+
+.section.light {
+  background: var(--bg-light);
+}
+
+h2 {
+  text-align: center;
+  font-size: 2.6rem;
+  margin-bottom: 4rem;
+}
+
+/* ============================= */
+/* SLIDER */
+/* ============================= */
+.slider-viewport {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 26px;
+  box-shadow: 0 32px 70px rgba(0, 0, 0, 0.14);
+}
+
+.slides-container {
+  display: flex;
+  transition: transform 0.8s ease;
+}
+
+.slide-item {
+  min-width: 100%;
+  height: 580px;
+}
+
+.slide-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Slider dots */
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 9px;
+  height: 9px;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.5);
+}
+
+/* ============================= */
+/* GRID */
+/* ============================= */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.4rem;
+}
+
+/* ============================= */
+/* SERVICES */
+/* ============================= */
+.service-card {
+  background: white;
+  padding: 3.2rem 2.2rem;
+  border-radius: 18px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+.service-card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.icon-wrapper {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 1.4rem;
+  border-radius: 50%;
+  background: radial-gradient(circle at top, #e4c27a, #c5a059);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(197, 160, 89, 0.35);
+}
+
+.service-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+}
+
+/* ============================= */
+/* CTA */
+/* ============================= */
+.cta {
+  margin: 80px 6%;
+  padding: 110px 8%;
+  background: linear-gradient(145deg, #1c1c1e, #0f0f10);
+  color: white;
+  border-radius: 40px;
+  text-align: center;
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.35);
+}
+
+.cta h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-bottom: 1.2rem;
+}
+
+.cta p {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* CTA buttons */
+.cta-actions {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.cta-actions .btn {
+  width: 64px;
+  height: 64px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-actions svg {
+  width: 26px;
+  height: 26px;
+}
+
+.cta-actions .btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
+
+/* ============================= */
+/* FOOTER */
+/* ============================= */
+footer {
+  padding: 70px 6%;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+
+.footer-phone a {
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* ============================= */
+/* FLOATING WHATSAPP */
+/* ============================= */
+.whatsapp-float {
+  position: fixed;
+  bottom: 26px;
+  right: 26px;
+  width: 58px;
+  height: 58px;
+  background: #25d366;
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9998;
+  isolation: isolate;
+  transition: transform 0.35s ease;
+}
+
+.whatsapp-float::before {
+  content: "";
+  position: absolute;
+  inset: -16px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(37, 211, 102, 0.6) 0%,
+    rgba(37, 211, 102, 0.35) 35%,
+    rgba(37, 211, 102, 0.15) 55%,
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+.whatsapp-float:hover {
+  transform: translateY(-4px) scale(1.03);
+}
+
+/* ============================= */
+/* MOBILE */
+/* ============================= */
+@media (max-width: 768px) {
+  body {
+    padding-top: 86px;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .slide-item {
+    height: 420px;
+  }
+
+  .section {
+    padding: 70px 6%;
+  }
+
+  .cta-actions {
+    gap: 14px;
+  }
+
+  .cta-actions .btn {
+    width: 56px;
+    height: 56px;
+  }
+
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+  }
+}
